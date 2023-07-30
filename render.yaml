@@ -1,0 +1,11 @@
+services:
+    - type: web
+      name: dash-rga-carleton
+      env: python
+      plan: free
+      region: ohio
+      buildCommand: "pip install -r requirements.txt"
+      startCommand: "gunicorn dash-rga-carleton:server"
+      envVars:
+        - key: PYTHON_VERSION
+          value: 3.8.15
