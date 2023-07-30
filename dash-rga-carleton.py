@@ -247,7 +247,7 @@ def update_spectrum_plot(clk_data, stored_data, RGA_info):
         else: spectrum_time = datetime.strftime(df.index[-1], '%Y-%m-%d %H:%M:%S') if clk_data['points'][0]['x'] not in df.index else clk_data['points'][0]['x']
         spectrum_time = datetime.strptime(spectrum_time + ':00', '%Y-%m-%d %H:%M:%S') if spectrum_time.count(':') < 2 else datetime.strptime(spectrum_time, '%Y-%m-%d %H:%M:%S')
         spectrum = df.loc[spectrum_time,:]
-        fig_spectrum = px.bar(x=mass_list, y=spectrum, log_y=True, range_y=[1e-5, 1000]) if RGA_info['Measurement'] == 'Barchart' else px.line(x=mass_list, y=spectrum, log_y=True, range_y=[1e-5, 1000])  
+        fig_spectrum = px.bar(x=mass_list, y=spectrum, log_y=True) if RGA_info['Measurement'] == 'Barchart' else px.line(x=mass_list, y=spectrum, log_y=True) 
         fig_spectrum.update_layout(xaxis_title='Mass/Charge', yaxis_title='Pressure (' + RGA_info['Units'] + ')') 
         spectrum_time_string = spectrum_time.strftime('%b %d, %Y %H:%M:%S')
         spectrum_data = spectrum.to_dict()
