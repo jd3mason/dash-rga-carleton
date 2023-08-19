@@ -121,7 +121,6 @@ app.layout = dbc.Container([
     dcc.Store(id='RGA-info'),
     dcc.Store(id='spectrum-data'),
     dcc.Store(id='spectrum-summary'),
-    dcc.Store(id='spectrum'),
     dcc.Download(id='excel-download'),
     dbc.Row([
         dbc.Col([summary_card, upload_data], width=3),
